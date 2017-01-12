@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="us.tier5.digitalemployeeidadmin.digitalemployeeidadmin.LoginActivity"
+    android:background="@drawable/aa"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/etBeaconName"
+                        android:hint="BEACON NAME"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:inputType="text"
+                        android:textColor="@color/secondaryColor"
+                        android:textColorHint="@color/secondaryColor"
+                        android:gravity="center"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="BEACON TIMEOUT"
+                        android:textStyle="bold"
+                        android:text="00:00:00"
+                        android:id="@+id/etTimeOut"
+                        android:textSize="14dp"
+                        android:inputType="number"
+                        android:textColorHint="@color/secondaryColor"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/secondaryColor"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="BEACON RANGE"
+                        android:textStyle="bold"
+                        android:id="@+id/etRange"
+                        android:textSize="14dp"
+                        android:inputType="numberDecimal"
+                        android:textColorHint="@color/secondaryColor"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/secondaryColor"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/rg">
+
+                        <RadioButton
+                            android:text="Log Beacon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rbLog"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_weight="1" />
+
+                        <RadioButton
+                            android:text="Task Beacon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/rbTask"
+                            android:textColor="@color/secondaryColor"
+                            android:layout_weight="1" />
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:id="@+id/parentLL">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:id="@+id/etBeaconTask"
+                                    android:hint="TASK"
+                                    android:textSize="14dp"
+                                    android:lines="4"
+                                    android:textStyle="bold"
+                                    android:inputType="text"
+                                    android:textColor="@color/secondaryColor"
+                                    android:textColorHint="@color/secondaryColor"
+                                    android:gravity="center"
+                                    android:background="@drawable/edittextbackground"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:gravity="center">
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:hint="ENDPOINT YES"
+                                    android:textStyle="bold"
+                                    android:id="@+id/etEndPointYes"
+                                    android:textSize="14dp"
+                                    android:inputType="text"
+                                    android:textColorHint="@color/secondaryColor"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="@color/secondaryColor"
+                                    android:background="@drawable/edittextbackground"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="20dp"
+                                android:gravity="center">
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:hint="ENDPOINT NO"
+                                    android:textStyle="bold"
+                                    android:id="@+id/etEndPointNo"
+                                    android:textSize="14dp"
+                                    android:inputType="text"
+                                    android:textColorHint="@color/secondaryColor"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="@color/secondaryColor"
+                                    android:background="@drawable/edittextbackground"
+                                    />
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <!-- <Button
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:background="@color/secondaryColor"
+                             android:text="Done"
+                             android:id="@+id/btnDone"
+                             android:textStyle="bold"
+                             android:textSize="18dp"
+                             android:layout_alignParentBottom="true"/>-->
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/secondaryColor"
+                android:text="Register"
+                android:id="@+id/btnRegister"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_alignParentBottom="true"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/secondaryColor"
+                android:text="Update"
+                android:id="@+id/btnUpdate"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textSize="18dp"
+                android:layout_alignParentBottom="true"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

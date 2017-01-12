@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="us.tier5.digitalemployeeidadmin.digitalemployeeidadmin.LoginActivity"
+    >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/etBeaconTask"
+                        android:hint="TASK"
+                        android:textSize="14dp"
+                        android:lines="4"
+                        android:textStyle="bold"
+                        android:inputType="text"
+                        android:textColor="@color/secondaryColor"
+                        android:textColorHint="@color/secondaryColor"
+                        android:gravity="center"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="ENDPOINT YES"
+                        android:textStyle="bold"
+                        android:id="@+id/etEndPointYes"
+                        android:textSize="14dp"
+                        android:inputType="text"
+                        android:textColorHint="@color/secondaryColor"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/secondaryColor"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="ENDPOINT NO"
+                        android:textStyle="bold"
+                        android:id="@+id/etEndPointNo"
+                        android:textSize="14dp"
+                        android:inputType="text"
+                        android:textColorHint="@color/secondaryColor"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/secondaryColor"
+                        android:background="@drawable/edittextbackground"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+           <!-- <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/secondaryColor"
+                android:text="Done"
+                android:id="@+id/btnDone"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_alignParentBottom="true"/>-->
+
+
+        </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

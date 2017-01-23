@@ -311,6 +311,8 @@ public class BlankFragment extends Fragment implements View.OnClickListener, Asy
                 verified=true;
                 tvBeaconName.setText(beacon.getString("name"));
 
+                UserConstants.beaconName=beacon.getString("name");
+
                 btnBeaconLog.setTag(String.valueOf(beacon.getInt("id")));
                 ivEditBeacon.setTag(String.valueOf(beacon.getInt("id")));
             }

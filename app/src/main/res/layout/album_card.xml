@@ -31,21 +31,32 @@
                 android:layout_below="@id/thumbnail"
                 android:paddingLeft="5dp"
                 android:textStyle="bold"
+                android:text="emplotee id"
                 android:paddingRight="5dp"
                 android:paddingTop="@dimen/album_title_padding"
+                android:textColor="@color/secondaryColor"
+                android:textSize="@dimen/album_title" />
+            <TextView
+                android:id="@+id/tvBeaconName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:paddingLeft="5dp"
+                android:textStyle="bold"
+                android:text="BeaconName"
+                android:paddingRight="5dp"
                 android:textColor="@color/secondaryColor"
                 android:textSize="@dimen/album_title" />
             <TextView
                 android:id="@+id/action"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/title"
-                android:layout_below="@+id/thumbnail"
+                android:layout_below="@+id/tvBeaconName"
                 android:text="action"
+                android:gravity="right"
                 android:textStyle="bold"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:paddingTop="@dimen/album_title_padding"
                 android:textColor="@color/secondaryColor"
                 android:textSize="@dimen/album_title" />
             <TextView
@@ -65,10 +76,18 @@
                 android:layout_below="@id/tvEmployeeName"
                 android:paddingBottom="@dimen/songs_count_padding_bottom"
                 android:paddingLeft="5dp"
-                android:textStyle="bold"
-                android:paddingRight="5dp"
+                android:paddingRight="@dimen/album_title_padding"
                 android:textSize="@dimen/songs_count" />
 
+            <ImageView
+                android:id="@+id/overflow"
+                android:layout_width="@dimen/ic_album_overflow_width"
+                android:layout_height="@dimen/ic_album_overflow_height"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/action"
+                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_dots" />
 
 
         </RelativeLayout>

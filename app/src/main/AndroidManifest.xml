@@ -28,20 +28,28 @@
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".BeaconDetails"
             android:label="Beacon Details"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".LogActivity"
             android:label="@string/title_activity_log"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<meta-data
+
+            <!--
+                <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="us.tier5.digitalemployeeidadmin.digitalemployeeidadmin.MainActivity" />-->
+                android:value="us.tier5.digitalemployeeidadmin.digitalemployeeidadmin.MainActivity" />
+            -->
+        </activity>
+        <activity android:name=".ShowBadge"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSplash">
+
         </activity>
     </application>
 

@@ -49,6 +49,8 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
     Api api = new Api("POST");
     HashMap<String,String> data = new HashMap<>();
     String routeGetAllLogs = "api/v1/beacon/view/logs";
+    String routeUserSpecificLogs = "api/v1/user/logs";
+    String routeUserBeaconSpecificLogs = "api/v1/user/beacon/logs";
 
     //view variables
     LinearLayout parentLLList;
@@ -82,6 +84,7 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
+
        // prepareAlbums();
 
         parentLLList = (LinearLayout) findViewById(R.id.parentLLList);
@@ -89,12 +92,30 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
         SharedPreferences prefs = getSharedPreferences("Digital-Employee-Admin", Context.MODE_PRIVATE);
         int Id = prefs.getInt("ID",0);
 
+        UserConstants.comapnyIdRunTime = String.valueOf(Id);
+
         data.put("company_id",String.valueOf(Id));
         data.put("beacon_id",UserConstants.beaconToEdit);
 
 
         loading = ProgressDialog.show(this, "","Please wait", true, false);
-        api.register(data,routeGetAllLogs);
+        if(UserConstants.userSpecificLog)
+        {
+            data.put("card_id",UserConstants.currentEmployeeId);
+            api.register(data,routeUserSpecificLogs);
+            //UserConstants.userSpecificLog=false;
+        }
+        else if(UserConstants.userBeaconSpecificLog)
+        {
+            data.put("card_id",UserConstants.currentEmployeeId);
+            api.register(data,routeUserBeaconSpecificLogs);
+            //UserConstants.userBeaconSpecificLog=false;
+        }
+        else
+        {
+            api.register(data,routeGetAllLogs);
+        }
+
 
 
 
@@ -106,6 +127,7 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
     @Override
     public void processFinish(String output) {
         //Toast.makeText(this, ""+output, Toast.LENGTH_SHORT).show();
+        Log.i("kingsukmajumder",output);
         loading.dismiss();
         try
         {
@@ -117,8 +139,17 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
                 Album a;
                 for(int i=0; i<jsonArray.length();i++)
                 {
-                    Log.i("kingsukmajumder",jsonArray.getJSONObject(i).toString());
+                    //Log.i("kingsukmajumder",jsonArray.getJSONObject(i).toString());
                     JSONObject currentObject = jsonArray.getJSONObject(i);
+
+                    if(i==0)
+                    {
+                        setTitle(currentObject.getString("beacon_name"));
+                        if(UserConstants.userSpecificLog)
+                        {
+                            setTitle(currentObject.getString("employee_id"));
+                        }
+                    }
 
                     String actionString = "";
                     String name = "";
@@ -150,40 +181,20 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
                         name = "";
                     }
 
-                    a = new Album(currentObject.getString("employee_id"), currentObject.getString("time"), currentObject.getString("picture"), actionString, name);
-                    albumList.add(a);
-
-                    /*View inflatedLayout= getLayoutInflater().inflate(R.layout.loglist, null, false);
-                    TextView tvEmployeeId = (TextView) inflatedLayout.findViewById(R.id.tvEmployeeId);
-                    TextView tvBeaconAction = (TextView) inflatedLayout.findViewById(R.id.tvBeaconAction);
-                    TextView tvTimeStamp = (TextView) inflatedLayout.findViewById(R.id.tvTimeStamp);
-
-                    tvEmployeeId.setText(currentObject.getString("employee_id"));
-                    tvTimeStamp.setText(currentObject.getString("time"));
-
-                    if(currentObject.has("interaction"))
+                    if(UserConstants.userSpecificLog)
                     {
+                        a = new Album(currentObject.getString("employee_id"), currentObject.getString("time"), currentObject.getString("picture"), actionString, name, currentObject.getString("idcard"),currentObject.getString("beacon_name"));
 
-                        if(currentObject.getString("interaction").equals("1"))
-                        {
-                            tvBeaconAction.setText("Yes");
-                        }
-                        else if(currentObject.getString("interaction").equals("0"))
-                        {
-                            tvBeaconAction.setText("No");
-                        }
                     }
                     else
                     {
-                        tvBeaconAction.setVisibility(View.GONE);
+                        a = new Album(currentObject.getString("employee_id"), currentObject.getString("time"), currentObject.getString("picture"), actionString, name, currentObject.getString("idcard"),"");
+
                     }
 
-
-                    parentLLList.addView(inflatedLayout);*/
-
-
-
+                    albumList.add(a);
                 }
+
                 adapter.notifyDataSetChanged();
 
             }
@@ -195,6 +206,16 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
         catch (Exception e)
         {
             Log.i("kingsukmajumder","error in log of beacon "+e.toString());
+        }
+        finally {
+            if(UserConstants.userSpecificLog)
+            {
+                UserConstants.userSpecificLog=false;
+            }
+            if(UserConstants.userBeaconSpecificLog)
+            {
+                UserConstants.userBeaconSpecificLog=false;
+            }
         }
     }
 

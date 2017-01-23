@@ -2,12 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <item
-        android:id="@+id/action_add_favourite"
+        android:id="@+id/show_all_logs"
         android:orderInCategory="100"
-        android:title="action_add_favourite" />
+        android:title="Show All Logs" />
 
     <item
-        android:id="@+id/action_play_next"
+        android:id="@+id/beacon_specific_logs"
         android:orderInCategory="101"
-        android:title="action_play_next" />
+        android:title="Beacon Specific Logs" />
 </menu>

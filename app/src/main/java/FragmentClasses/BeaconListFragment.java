@@ -174,6 +174,7 @@ public class BeaconListFragment extends Fragment implements AsyncResponse.Respon
                 {
                     JSONObject currentObj = jsonArray.getJSONObject(i);
                     String name = currentObj.getString("name");
+
                     int type = currentObj.getInt("type");
 
                     View inflatedLayout= getLayoutInflater(mySavedInstance).inflate(R.layout.listitem, null, false);

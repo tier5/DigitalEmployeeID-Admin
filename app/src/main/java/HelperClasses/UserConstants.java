@@ -15,5 +15,16 @@ public class UserConstants {
 
     public static boolean beaconEditPage = false;
     public static String beaconToEdit = "";
+
+    public static String beaconName="";
+
+    public static String currentIdToShow = "";
+
+    public static String comapnyIdRunTime = "";
+
+    public static String currentEmployeeId = "";
+
+    public static boolean userSpecificLog = false;
+    public static boolean userBeaconSpecificLog = false;
 }
 

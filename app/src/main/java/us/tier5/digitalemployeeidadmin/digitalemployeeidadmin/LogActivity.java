@@ -156,8 +156,9 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
 
                     if(currentObject.has("interaction"))
                     {
+                        actionString = currentObject.getString("interaction");
 
-                        if(currentObject.getString("interaction").equals("1"))
+                        /*if(currentObject.getString("interaction").equals("1"))
                         {
                             actionString = "Yes";
                         }
@@ -165,6 +166,10 @@ public class LogActivity extends AppCompatActivity implements AsyncResponse.Resp
                         {
                             actionString = "No";
                         }
+                        else
+                        {
+                            actionString = currentObject.getString("interaction");
+                        }*/
                     }
                     else
                     {

@@ -35,8 +35,8 @@ public class ConnectToServer {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(15000);
-            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(60000);
+            conn.setConnectTimeout(60000);
             conn.setRequestMethod(method);
             conn.setDoInput(true);
             conn.setDoOutput(true);
